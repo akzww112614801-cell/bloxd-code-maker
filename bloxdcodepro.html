@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloxdCode ジェネレーター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BloxdCode ジェネレーター</h1>
+        <p class="subtitle">設定を選んで、Bloxd.ioのワールドコード（F8キー）に貼り付けるコードを生成します。</p>
+
+        <div class="editor-layout">
+            <div class="config-panel">
+                <h2>1. プレイヤー設定 (Client Options)</h2>
+                
+                <div class="form-group">
+                    <label for="airJumpCount">空中ジャンプ回数 (2段ジャンプなど):</label>
+                    <input type="number" id="airJumpCount" value="0" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="maxHealth">最大体力 (デフォルトは100):</label>
+                    <input type="number" id="maxHealth" value="100" min="1">
+                </div>
+
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="invincible">
+                    <label for="invincible">無敵状態にする (invincible)</label>
+                </div>
+
+                <h2>2. イベント設定 (Callbacks)</h2>
+                
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="joinMessage">
+                    <label for="joinMessage">プレイヤー参加時にログを表示する (onPlayerJoin)</label>
+                </div>
+
+                <button class="btn-generate" onclick="generateBloxdCode()">コードを生成する</button>
+            </div>
+
+            <div class="output-panel">
+                <h2>3. 生成されたコード</h2>
+                <textarea id="codeOutput" readonly placeholder="ここに生成されたコードが表示されます..."></textarea>
+                <button class="btn-copy" onclick="copyToClipboard()">コードをコピー</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
